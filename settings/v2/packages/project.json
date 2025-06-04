@@ -1,0 +1,34 @@
+{
+  "__version__": "1.0.6",
+  "script": {
+    "useDefineForClassFields": false,
+    "allowDeclareFields": false,
+    "preserveSymlinks": true
+  },
+  "general": {
+    "designResolution": {
+      "width": 960,
+      "height": 540,
+      "fitHeight": false
+    }
+  },
+  "layer": [
+    {
+      "name": "canvas_19",
+      "value": 524288
+    },
+    {
+      "name": "canvas_10",
+      "value": 1024
+    },
+    {
+      "name": "LEVEL_NODES",
+      "value": 32768
+    }
+  ],
+  "fbx": {
+    "legacyFbxImporter": {
+      "visible": true
+    }
+  }
+}

@@ -1,0 +1,134 @@
+{
+  "ver": "1.0.27",
+  "importer": "image",
+  "imported": true,
+  "uuid": "5c9cad58-5018-42f4-bfa5-54ea483289cf",
+  "files": [
+    ".json",
+    ".png"
+  ],
+  "subMetas": {
+    "6c48a": {
+      "importer": "texture",
+      "uuid": "5c9cad58-5018-42f4-bfa5-54ea483289cf@6c48a",
+      "displayName": "Elements - Flash 011 Hit Explosion Radial noCT noRSZ 01_111",
+      "id": "6c48a",
+      "name": "texture",
+      "userData": {
+        "wrapModeS": "clamp-to-edge",
+        "wrapModeT": "clamp-to-edge",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "anisotropy": 0,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "5c9cad58-5018-42f4-bfa5-54ea483289cf",
+        "visible": false
+      },
+      "ver": "1.0.22",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "f9941": {
+      "importer": "sprite-frame",
+      "uuid": "5c9cad58-5018-42f4-bfa5-54ea483289cf@f9941",
+      "displayName": "Elements - Flash 011 Hit Explosion Radial noCT noRSZ 01_111",
+      "id": "f9941",
+      "name": "spriteFrame",
+      "userData": {
+        "trimThreshold": 1,
+        "rotated": false,
+        "offsetX": 0,
+        "offsetY": 0,
+        "trimX": 168,
+        "trimY": 167,
+        "width": 664,
+        "height": 666,
+        "rawWidth": 1000,
+        "rawHeight": 1000,
+        "borderTop": 0,
+        "borderBottom": 0,
+        "borderLeft": 0,
+        "borderRight": 0,
+        "packable": true,
+        "pixelsToUnit": 100,
+        "pivotX": 0.5,
+        "pivotY": 0.5,
+        "meshType": 0,
+        "vertices": {
+          "rawPosition": [
+            -332,
+            -333,
+            0,
+            332,
+            -333,
+            0,
+            -332,
+            333,
+            0,
+            332,
+            333,
+            0
+          ],
+          "indexes": [
+            0,
+            1,
+            2,
+            2,
+            1,
+            3
+          ],
+          "uv": [
+            168,
+            833,
+            832,
+            833,
+            168,
+            167,
+            832,
+            167
+          ],
+          "nuv": [
+            0.168,
+            0.167,
+            0.832,
+            0.167,
+            0.168,
+            0.833,
+            0.832,
+            0.833
+          ],
+          "minPos": [
+            -332,
+            -333,
+            0
+          ],
+          "maxPos": [
+            332,
+            333,
+            0
+          ]
+        },
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "5c9cad58-5018-42f4-bfa5-54ea483289cf@6c48a",
+        "atlasUuid": "",
+        "trimType": "auto"
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "type": "sprite-frame",
+    "hasAlpha": true,
+    "fixAlphaTransparencyArtifacts": true,
+    "redirect": "5c9cad58-5018-42f4-bfa5-54ea483289cf@6c48a"
+  }
+}
