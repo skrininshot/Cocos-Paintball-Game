@@ -5,5 +5,8 @@
   "name": "PlayablePaintball",
   "type": "3d",
   "uuid": "85fce51e-4e13-4da1-bba7-ca82e45940bb",
-  "_sourceId": "0bd80113-4da4-4e0a-90c9-c8d85d3b77b7"
+  "_sourceId": "0bd80113-4da4-4e0a-90c9-c8d85d3b77b7",
+  "dependencies": {
+    "cc": "^3.0.1"
+  }
 }
