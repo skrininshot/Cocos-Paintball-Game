@@ -30,5 +30,12 @@
     "legacyFbxImporter": {
       "visible": true
     }
+  },
+  "physics": {
+    "defaultMaterial": "2fb52caf-6099-4052-8581-11f35bcb67d6",
+    "maxSubSteps": 1,
+    "fixedTimeStep": 0.0166667,
+    "sleepThreshold": 0.1,
+    "allowSleep": false
   }
 }
