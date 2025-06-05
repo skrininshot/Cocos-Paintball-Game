@@ -25421,7 +25421,7 @@
         "__id__": 677
       }
     ],
-    "_active": false,
+    "_active": true,
     "_components": [
       {
         "__id__": 679
@@ -25899,7 +25899,7 @@
     "__prefab": null,
     "tag": 0,
     "_group": 1,
-    "_density": 0,
+    "_density": 1,
     "_sensor": false,
     "_friction": 0,
     "_restitution": 1,
@@ -26059,7 +26059,7 @@
     "__prefab": null,
     "tag": 0,
     "_group": 1,
-    "_density": 0,
+    "_density": 1,
     "_sensor": false,
     "_friction": 0,
     "_restitution": 1,
@@ -26229,7 +26229,7 @@
     "__prefab": null,
     "tag": 0,
     "_group": 1,
-    "_density": 0,
+    "_density": 1,
     "_sensor": false,
     "_friction": 0,
     "_restitution": 1,
@@ -26389,7 +26389,7 @@
     "__prefab": null,
     "tag": 0,
     "_group": 1,
-    "_density": 0,
+    "_density": 1,
     "_sensor": false,
     "_friction": 0,
     "_restitution": 1,
@@ -26562,7 +26562,7 @@
     "__prefab": null,
     "tag": 0,
     "_group": 1,
-    "_density": 0,
+    "_density": 1,
     "_sensor": false,
     "_friction": 0,
     "_restitution": 1,
@@ -26735,7 +26735,7 @@
     "__prefab": null,
     "tag": 0,
     "_group": 1,
-    "_density": 0,
+    "_density": 1,
     "_sensor": false,
     "_friction": 0,
     "_restitution": 1,
@@ -26908,7 +26908,7 @@
     "__prefab": null,
     "tag": 0,
     "_group": 1,
-    "_density": 0,
+    "_density": 1,
     "_sensor": false,
     "_friction": 0,
     "_restitution": 1,
@@ -27081,7 +27081,7 @@
     "__prefab": null,
     "tag": 0,
     "_group": 1,
-    "_density": 0,
+    "_density": 1,
     "_sensor": false,
     "_friction": 0,
     "_restitution": 1,
@@ -27254,7 +27254,7 @@
     "__prefab": null,
     "tag": 0,
     "_group": 1,
-    "_density": 0,
+    "_density": 1,
     "_sensor": false,
     "_friction": 0,
     "_restitution": 1,
@@ -27427,7 +27427,7 @@
     "__prefab": null,
     "tag": 0,
     "_group": 1,
-    "_density": 0,
+    "_density": 1,
     "_sensor": false,
     "_friction": 0,
     "_restitution": 1,
@@ -27600,7 +27600,7 @@
     "__prefab": null,
     "tag": 0,
     "_group": 1,
-    "_density": 0,
+    "_density": 1,
     "_sensor": false,
     "_friction": 0,
     "_restitution": 1,
@@ -27773,7 +27773,7 @@
     "__prefab": null,
     "tag": 0,
     "_group": 1,
-    "_density": 0,
+    "_density": 1,
     "_sensor": false,
     "_friction": 0,
     "_restitution": 1,
@@ -27943,7 +27943,7 @@
     "__prefab": null,
     "tag": 0,
     "_group": 1,
-    "_density": 0,
+    "_density": 1,
     "_sensor": false,
     "_friction": 0,
     "_restitution": 1,
@@ -28103,7 +28103,7 @@
     "__prefab": null,
     "tag": 0,
     "_group": 1,
-    "_density": 0,
+    "_density": 1,
     "_sensor": false,
     "_friction": 0,
     "_restitution": 1,
@@ -28276,7 +28276,7 @@
     "__prefab": null,
     "tag": 0,
     "_group": 1,
-    "_density": 0,
+    "_density": 1,
     "_sensor": false,
     "_friction": 0,
     "_restitution": 1,
@@ -28449,7 +28449,7 @@
     "__prefab": null,
     "tag": 0,
     "_group": 1,
-    "_density": 0,
+    "_density": 1,
     "_sensor": false,
     "_friction": 0,
     "_restitution": 1,
@@ -28622,7 +28622,7 @@
     "__prefab": null,
     "tag": 0,
     "_group": 1,
-    "_density": 0,
+    "_density": 1,
     "_sensor": false,
     "_friction": 0,
     "_restitution": 1,
@@ -28795,7 +28795,7 @@
     "__prefab": null,
     "tag": 0,
     "_group": 1,
-    "_density": 0,
+    "_density": 1,
     "_sensor": false,
     "_friction": 0,
     "_restitution": 1,
@@ -29513,7 +29513,7 @@
     "_density": 1,
     "_sensor": false,
     "_friction": 0,
-    "_restitution": 1,
+    "_restitution": 0,
     "_offset": {
       "__type__": "cc.Vec2",
       "x": 0,
@@ -29674,7 +29674,7 @@
     "_density": 1,
     "_sensor": false,
     "_friction": 0,
-    "_restitution": 1,
+    "_restitution": 0,
     "_offset": {
       "__type__": "cc.Vec2",
       "x": 0,
@@ -29835,7 +29835,7 @@
     "_density": 1,
     "_sensor": false,
     "_friction": 0,
-    "_restitution": 1,
+    "_restitution": 0,
     "_offset": {
       "__type__": "cc.Vec2",
       "x": 0,
@@ -29996,7 +29996,7 @@
     "_density": 1,
     "_sensor": false,
     "_friction": 0,
-    "_restitution": 1,
+    "_restitution": 0,
     "_offset": {
       "__type__": "cc.Vec2",
       "x": 0,
@@ -30157,7 +30157,7 @@
     "_density": 1,
     "_sensor": false,
     "_friction": 0,
-    "_restitution": 1,
+    "_restitution": 0,
     "_offset": {
       "__type__": "cc.Vec2",
       "x": 0,
@@ -31641,6 +31641,7 @@
     "ballSpawner": {
       "__id__": 811
     },
+    "ballLifeDuration": 1,
     "uiController": {
       "__id__": 852
     },
@@ -31662,11 +31663,14 @@
     "bonusScoreText": {
       "__id__": 822
     },
-    "bonusScorePrefix": "",
+    "bonusScorePrefix": "€",
     "multiplierScoreText": {
       "__id__": 833
     },
-    "multiplierScorePrefix": "",
+    "multiplierScorePrefix": "X",
+    "playButtonPressTip": {
+      "__id__": 835
+    },
     "_id": "cdpn6J/rtPzpem8ok6E0PM"
   },
   {

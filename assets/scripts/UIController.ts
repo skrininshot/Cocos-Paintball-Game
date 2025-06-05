@@ -18,6 +18,9 @@ export class UIController extends Component {
 
     @property
     multiplierScorePrefix = 'X';
+
+    @property({type: Node})
+    playButtonPressTip: Node = null!;
     
     start() {
         this.playButton.node.on(Button.EventType.CLICK, this.onButtonClicked, this);
@@ -26,16 +29,19 @@ export class UIController extends Component {
     }
     
     onDestroy(){
+        this.playButton.node.off(Button.EventType.CLICK, this.onButtonClicked, this);
         this.node.parent?.getChildByName('ScoreManagerNode')?.off('multiplier-score-updated', this.updateMultiplierScoreText, this);
         this.node.parent?.getChildByName('ScoreManagerNode')?.off('bonus-score-updated', this.updateBonusScoreText, this);
     }
     
-    showPlayButton() {
-        this.playButton.node.active = true;
+    activateButton() {
+        this.playButton.interactable = true;
+        this.playButtonPressTip.active = true;
     }
     
-    hidePlayButton() {
-        this.playButton.node.active = false;
+    deactivateButton() {
+        this.playButton.interactable = false;
+        this.playButtonPressTip.active = false;
     }
     
     private updateBonusScoreText(text: any){

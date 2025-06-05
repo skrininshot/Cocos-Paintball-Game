@@ -26,6 +26,7 @@ export class ScoreManager extends Component {
         this.bonusScore += amount * this.multiplierScore;
         console.log(`bonus score: ${this.bonusScore}`);
         this.node.emit('bonus-score-updated', this.bonusScore);
+        this.node.emit('award-reached');
     }
     
     public clearScore() {
