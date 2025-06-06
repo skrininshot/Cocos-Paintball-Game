@@ -7,6 +7,9 @@ export class MultiplierCollider extends Component {
     @property({ type: Number })
     public value: number = 1;
 
+    @property({ type: Number })
+    public impulse: number = 5;
+
     onLoad() {
         const collider = this.getComponent(Collider2D);
         if (collider) {

@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, game } from 'cc';
+import { _decorator, Component, game } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass('ScoreManager')

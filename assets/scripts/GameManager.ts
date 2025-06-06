@@ -63,9 +63,8 @@ export class GameManager extends Component {
                 break;
 
             case GameStates.Win:
-                ScoreManager.instance.clearScore();
                 this.ballSpawner.despawn();
-                this.switchGameState(0);  //replace by win animation
+                this.uiController.startWinUIAnimation(this.onWinUIAnimationComplete.bind(this))
                 break;
                 
             case GameStates.Restart:
@@ -93,6 +92,12 @@ export class GameManager extends Component {
     private handleAddMultiplierScore(){
         this.ballLifeTimer = 0;
     }
+
+    private onWinUIAnimationComplete() {
+        this.switchGameState(0);
+        ScoreManager.instance.clearScore();
+    }
+
 }
 
 enum GameStates

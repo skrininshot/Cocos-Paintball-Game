@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, Collider2D, Contact2DType, Enum } from 'cc';
+import { _decorator, Component, Collider2D, Contact2DType } from 'cc';
 const { ccclass, property } = _decorator;
 import {ScoreManager} from './ScoreManager';
 

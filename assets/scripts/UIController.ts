@@ -1,5 +1,7 @@
 import { _decorator, Component, Node, Button, Sprite } from 'cc';
 import {TextWithShadowEffect} from "db://assets/scripts/TextWithShadowEffect";
+import {WinUI} from "db://assets/scripts/WinUI";
+import {ScoreManager} from "db://assets/scripts/ScoreManager";
 const { ccclass, property } = _decorator;
 
 @ccclass('UIController')
@@ -21,15 +23,25 @@ export class UIController extends Component {
 
     @property({type: Node})
     playButtonPressTip: Node = null!;
+
+    @property({type: WinUI})
+    winUI: WinUI = null!;
     
+    winUIOnAnimationComplete: (() => void) | null = null;
+
     start() {
         this.playButton.node.on(Button.EventType.CLICK, this.onButtonClicked, this);
-        this.node.parent?.getChildByName('ScoreManagerNode')?.on('multiplier-score-updated', this.updateMultiplierScoreText, this);
-        this.node.parent?.getChildByName('ScoreManagerNode')?.on('bonus-score-updated', this.updateBonusScoreText, this);
+        this.winUI.node.on('animation-completed', this.onWinUIAnimationComplete, this);
+
+        ScoreManager.instance?.node.on('multiplier-score-updated', this.updateMultiplierScoreText, this);
+        ScoreManager.instance?.node.on('bonus-score-updated', this.updateBonusScoreText, this);
+
+        this.winUI.node.active = false;
     }
     
     onDestroy(){
         this.playButton.node.off(Button.EventType.CLICK, this.onButtonClicked, this);
+        this.winUI.node.off('animation-completed', this.onWinUIAnimationComplete, this);
         this.node.parent?.getChildByName('ScoreManagerNode')?.off('multiplier-score-updated', this.updateMultiplierScoreText, this);
         this.node.parent?.getChildByName('ScoreManagerNode')?.off('bonus-score-updated', this.updateBonusScoreText, this);
     }
@@ -44,6 +56,21 @@ export class UIController extends Component {
         this.playButtonPressTip.active = false;
     }
     
+    startWinUIAnimation(onComplete: () => void){
+        this.winUIOnAnimationComplete = onComplete;
+        this.winUI.node.active = true;
+        this.winUI.startAnimation();
+        
+    }
+    
+    private onWinUIAnimationComplete(){
+        this.winUI.node.active = false;
+        
+        if (this.winUIOnAnimationComplete) {
+            this.winUIOnAnimationComplete();
+        }
+    }
+    
     private updateBonusScoreText(text: any){
         this.bonusScoreText.SetText(this.bonusScorePrefix + text.toString())
     }
@@ -52,7 +79,7 @@ export class UIController extends Component {
         this.multiplierScoreText.SetText(this.multiplierScorePrefix + text.toString())
     }
     
-    onButtonClicked() {
+    private onButtonClicked() {
         console.log('Кнопка нажата!');
         this.node.emit('button-clicked');
     }
