@@ -41,12 +41,12 @@
       "userData": {
         "trimThreshold": 1,
         "rotated": false,
-        "offsetX": -774,
-        "offsetY": 226,
+        "offsetX": -784,
+        "offsetY": 245,
         "trimX": 0,
         "trimY": 0,
-        "width": 372,
-        "height": 1468,
+        "width": 352,
+        "height": 1430,
         "rawWidth": 1920,
         "rawHeight": 1920,
         "borderTop": 0,
@@ -60,17 +60,17 @@
         "meshType": 0,
         "vertices": {
           "rawPosition": [
-            -186,
-            -734,
+            -176,
+            -715,
             0,
-            186,
-            -734,
+            176,
+            -715,
             0,
-            -186,
-            734,
+            -176,
+            715,
             0,
-            186,
-            734,
+            176,
+            715,
             0
           ],
           "indexes": [
@@ -84,31 +84,31 @@
           "uv": [
             0,
             1920,
-            372,
+            352,
             1920,
             0,
-            452,
-            372,
-            452
+            490,
+            352,
+            490
           ],
           "nuv": [
             0,
-            0.23541666666666666,
-            0.19375,
-            0.23541666666666666,
+            0.2552083333333333,
+            0.18333333333333332,
+            0.2552083333333333,
             0,
             1,
-            0.19375,
+            0.18333333333333332,
             1
           ],
           "minPos": [
-            -186,
-            -734,
+            -176,
+            -715,
             0
           ],
           "maxPos": [
-            186,
-            734,
+            176,
+            715,
             0
           ]
         },
@@ -131,7 +131,8 @@
     "fixAlphaTransparencyArtifacts": false,
     "redirect": "c9cf2c5a-7f79-4a46-8d69-97446219a712@6c48a",
     "compressSettings": {
-      "useCompressTexture": true
+      "useCompressTexture": false,
+      "presetId": "default"
     }
   }
 }

@@ -42,11 +42,11 @@
         "trimThreshold": 1,
         "rotated": false,
         "offsetX": -0.5,
-        "offsetY": 2.5,
+        "offsetY": 1,
         "trimX": 7,
-        "trimY": 12,
+        "trimY": 16,
         "width": 528,
-        "height": 128,
+        "height": 123,
         "rawWidth": 543,
         "rawHeight": 157,
         "borderTop": 0,
@@ -61,16 +61,16 @@
         "vertices": {
           "rawPosition": [
             -264,
-            -64,
+            -61.5,
             0,
             264,
-            -64,
+            -61.5,
             0,
             -264,
-            64,
+            61.5,
             0,
             264,
-            64,
+            61.5,
             0
           ],
           "indexes": [
@@ -83,32 +83,32 @@
           ],
           "uv": [
             7,
-            145,
+            141,
             535,
-            145,
+            141,
             7,
-            17,
+            18,
             535,
-            17
+            18
           ],
           "nuv": [
             0.01289134438305709,
-            0.10828025477707007,
+            0.11464968152866242,
             0.9852670349907919,
-            0.10828025477707007,
+            0.11464968152866242,
             0.01289134438305709,
-            0.9235668789808917,
+            0.8980891719745223,
             0.9852670349907919,
-            0.9235668789808917
+            0.8980891719745223
           ],
           "minPos": [
             -264,
-            -64,
+            -61.5,
             0
           ],
           "maxPos": [
             264,
-            64,
+            61.5,
             0
           ]
         },
@@ -129,6 +129,10 @@
     "type": "sprite-frame",
     "hasAlpha": true,
     "fixAlphaTransparencyArtifacts": false,
-    "redirect": "7fc2e47f-db4b-41f6-88c2-4a58aaf32eb0@6c48a"
+    "redirect": "7fc2e47f-db4b-41f6-88c2-4a58aaf32eb0@6c48a",
+    "compressSettings": {
+      "useCompressTexture": false,
+      "presetId": "default"
+    }
   }
 }

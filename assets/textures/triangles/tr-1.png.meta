@@ -41,12 +41,12 @@
       "userData": {
         "trimThreshold": 1,
         "rotated": false,
-        "offsetX": 0,
+        "offsetX": 0.5,
         "offsetY": 0,
-        "trimX": 0,
-        "trimY": 0,
-        "width": 68,
-        "height": 60,
+        "trimX": 6,
+        "trimY": 5,
+        "width": 57,
+        "height": 50,
         "rawWidth": 68,
         "rawHeight": 60,
         "borderTop": 0,
@@ -60,17 +60,17 @@
         "meshType": 0,
         "vertices": {
           "rawPosition": [
-            -34,
-            -30,
+            -28.5,
+            -25,
             0,
-            34,
-            -30,
+            28.5,
+            -25,
             0,
-            -34,
-            30,
+            -28.5,
+            25,
             0,
-            34,
-            30,
+            28.5,
+            25,
             0
           ],
           "indexes": [
@@ -82,33 +82,33 @@
             3
           ],
           "uv": [
-            0,
-            60,
-            68,
-            60,
-            0,
-            0,
-            68,
-            0
+            6,
+            55,
+            63,
+            55,
+            6,
+            5,
+            63,
+            5
           ],
           "nuv": [
-            0,
-            0,
-            1,
-            0,
-            0,
-            1,
-            1,
-            1
+            0.08823529411764706,
+            0.08333333333333333,
+            0.9264705882352942,
+            0.08333333333333333,
+            0.08823529411764706,
+            0.9166666666666666,
+            0.9264705882352942,
+            0.9166666666666666
           ],
           "minPos": [
-            -34,
-            -30,
+            -28.5,
+            -25,
             0
           ],
           "maxPos": [
-            34,
-            30,
+            28.5,
+            25,
             0
           ]
         },
@@ -129,6 +129,9 @@
     "type": "sprite-frame",
     "hasAlpha": true,
     "fixAlphaTransparencyArtifacts": false,
-    "redirect": "5085fbf1-4427-4138-bc28-f8f7eac3ada9@6c48a"
+    "redirect": "5085fbf1-4427-4138-bc28-f8f7eac3ada9@6c48a",
+    "compressSettings": {
+      "useCompressTexture": false
+    }
   }
 }

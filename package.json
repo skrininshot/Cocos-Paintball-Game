@@ -1,12 +1,13 @@
 {
   "creator": {
-    "version": "3.8.6"
+    "version": "3.8.6",
+    "registry": {
+      "remote": {}
+    },
+    "dependencies": {}
   },
-  "name": "PlayablePaintball",
-  "type": "3d",
-  "uuid": "85fce51e-4e13-4da1-bba7-ca82e45940bb",
-  "_sourceId": "0bd80113-4da4-4e0a-90c9-c8d85d3b77b7",
-  "dependencies": {
-    "cc": "^3.0.1"
-  }
+  "name": "cocos-playable-demo",
+  "uuid": "c339b5c3-010b-4775-a701-8124f82ded75",
+  "version": "3.8.0",
+  "_sourceId": "0194ae3d-fea3-43ac-8fca-c1fa1ca1e654"
 }

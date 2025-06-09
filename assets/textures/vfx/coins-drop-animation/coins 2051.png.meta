@@ -41,12 +41,12 @@
       "userData": {
         "trimThreshold": 1,
         "rotated": false,
-        "offsetX": -22.5,
-        "offsetY": -216.5,
+        "offsetX": -25,
+        "offsetY": -223.5,
         "trimX": 0,
-        "trimY": 433,
-        "width": 1875,
-        "height": 1487,
+        "trimY": 447,
+        "width": 1870,
+        "height": 1473,
         "rawWidth": 1920,
         "rawHeight": 1920,
         "borderTop": 0,
@@ -60,17 +60,17 @@
         "meshType": 0,
         "vertices": {
           "rawPosition": [
-            -937.5,
-            -743.5,
+            -935,
+            -736.5,
             0,
-            937.5,
-            -743.5,
+            935,
+            -736.5,
             0,
-            -937.5,
-            743.5,
+            -935,
+            736.5,
             0,
-            937.5,
-            743.5,
+            935,
+            736.5,
             0
           ],
           "indexes": [
@@ -83,32 +83,32 @@
           ],
           "uv": [
             0,
-            1487,
-            1875,
-            1487,
+            1473,
+            1870,
+            1473,
             0,
             0,
-            1875,
+            1870,
             0
           ],
           "nuv": [
             0,
             0,
-            0.9765625,
+            0.9739583333333334,
             0,
             0,
-            0.7744791666666667,
-            0.9765625,
-            0.7744791666666667
+            0.7671875,
+            0.9739583333333334,
+            0.7671875
           ],
           "minPos": [
-            -937.5,
-            -743.5,
+            -935,
+            -736.5,
             0
           ],
           "maxPos": [
-            937.5,
-            743.5,
+            935,
+            736.5,
             0
           ]
         },
@@ -128,10 +128,11 @@
   "userData": {
     "type": "sprite-frame",
     "hasAlpha": true,
-    "fixAlphaTransparencyArtifacts": true,
+    "fixAlphaTransparencyArtifacts": false,
     "redirect": "859a03de-727a-4925-a895-40f24fc91028@6c48a",
     "compressSettings": {
-      "useCompressTexture": true
+      "useCompressTexture": false,
+      "presetId": "default"
     }
   }
 }

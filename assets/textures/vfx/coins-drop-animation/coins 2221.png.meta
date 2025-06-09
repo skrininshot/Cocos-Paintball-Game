@@ -41,12 +41,12 @@
       "userData": {
         "trimThreshold": 1,
         "rotated": false,
-        "offsetX": -5,
-        "offsetY": -184.5,
+        "offsetX": -8,
+        "offsetY": -192,
         "trimX": 0,
-        "trimY": 369,
-        "width": 1910,
-        "height": 1551,
+        "trimY": 384,
+        "width": 1904,
+        "height": 1536,
         "rawWidth": 1920,
         "rawHeight": 1920,
         "borderTop": 0,
@@ -60,17 +60,17 @@
         "meshType": 0,
         "vertices": {
           "rawPosition": [
-            -955,
-            -775.5,
+            -952,
+            -768,
             0,
-            955,
-            -775.5,
+            952,
+            -768,
             0,
-            -955,
-            775.5,
+            -952,
+            768,
             0,
-            955,
-            775.5,
+            952,
+            768,
             0
           ],
           "indexes": [
@@ -83,32 +83,32 @@
           ],
           "uv": [
             0,
-            1551,
-            1910,
-            1551,
+            1536,
+            1904,
+            1536,
             0,
             0,
-            1910,
+            1904,
             0
           ],
           "nuv": [
             0,
             0,
-            0.9947916666666666,
+            0.9916666666666667,
             0,
             0,
-            0.8078125,
-            0.9947916666666666,
-            0.8078125
+            0.8,
+            0.9916666666666667,
+            0.8
           ],
           "minPos": [
-            -955,
-            -775.5,
+            -952,
+            -768,
             0
           ],
           "maxPos": [
-            955,
-            775.5,
+            952,
+            768,
             0
           ]
         },
@@ -128,10 +128,11 @@
   "userData": {
     "type": "sprite-frame",
     "hasAlpha": true,
-    "fixAlphaTransparencyArtifacts": true,
+    "fixAlphaTransparencyArtifacts": false,
     "redirect": "e74b5b37-56ca-4216-bab2-7c31d69819ca@6c48a",
     "compressSettings": {
-      "useCompressTexture": true
+      "useCompressTexture": false,
+      "presetId": "default"
     }
   }
 }
