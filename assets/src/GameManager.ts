@@ -1,7 +1,8 @@
-import { _decorator, Component, Node } from 'cc';
+import { _decorator, Component, Node, randomRange } from 'cc';
 import {BallSpawner} from "./BallSpawner";
 import {UIController} from "./UIController";
 import {ScoreManager} from './ScoreManager';
+import {LevelObstaclesController} from "./LevelObstaclesController";
 const { ccclass, property } = _decorator;
 
 @ccclass('GameManager')
@@ -22,6 +23,14 @@ export class GameManager extends Component {
         type: UIController
     })
     uiController: UIController = null!;
+    
+    @property({type: LevelObstaclesController})
+    levelObstaclesController = null!;
+    
+    @property
+    fakeWallTimerRandom: number = 3;
+    
+    private fakeWallTimer: number = 0;
     
     private gameStateIndex: GameStates = GameStates.Menu;
     
@@ -58,6 +67,9 @@ export class GameManager extends Component {
                 this.uiController.deactivateButton();
                 this.ballSpawner.spawn();
                 this.ballLifeTimer = 0;
+                
+                this.levelObstaclesController.setFakeWall(true);
+                this.fakeWallTimer = randomRange(-this.fakeWallTimerRandom, this.fakeWallTimerRandom);
                 break;
 
             case GameStates.Win:
@@ -75,7 +87,10 @@ export class GameManager extends Component {
     
     update(delta: number) {
         switch (this.gameStateIndex) {
-            case GameStates.Play: { this.handleBallLifeTimer(delta); }
+            case GameStates.Play: { 
+                this.handleBallLifeTimer(delta); 
+                this.handleFakeWallTimer(delta);
+            }
         }
     }
     
@@ -86,13 +101,21 @@ export class GameManager extends Component {
             this.switchGameState(GameStates.Restart);
         }
     }
+
+    private handleFakeWallTimer(delta: number){
+        this.fakeWallTimer -= delta;
+        
+        if (this.fakeWallTimer <= 0 && this.levelObstaclesController.getFakeWallIsActive()){
+            this.levelObstaclesController.setFakeWall(false);
+        }
+    }
     
     private handleAddMultiplierScore(){
         this.ballLifeTimer = 0;
     }
 
     private onWinUIAnimationComplete() {
-        this.switchGameState(0);
+        this.switchGameState(GameStates.Menu);
         ScoreManager.instance.clearScore();
     }
 

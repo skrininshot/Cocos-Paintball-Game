@@ -16,5 +16,11 @@
   "custom_joint_texture_layouts": [],
   "script": {
     "preserveSymlinks": true
+  },
+  "physics": {
+    "fixedTimeStep": 0.00833335,
+    "gravity": {
+      "y": -10
+    }
   }
 }

@@ -54,11 +54,11 @@
     },
     "_lscale": {
       "__type__": "cc.Vec3",
-      "x": 0.125,
-      "y": 0.125,
+      "x": 0.115,
+      "y": 0.115,
       "z": 1
     },
-    "_mobility": 0,
+    "_mobility": 2,
     "_layer": 1073741824,
     "_euler": {
       "__type__": "cc.Vec3",
@@ -126,16 +126,16 @@
     },
     "tag": 0,
     "_group": 1,
-    "_density": 10,
+    "_density": 0.01,
     "_sensor": false,
     "_friction": 0,
-    "_restitution": 1.1,
+    "_restitution": 1,
     "_offset": {
       "__type__": "cc.Vec2",
       "x": 0,
       "y": 0
     },
-    "_radius": 0.0001,
+    "_radius": 0.00001,
     "_id": ""
   },
   {
@@ -155,13 +155,13 @@
       "__id__": 7
     },
     "enabledContactListener": true,
-    "bullet": false,
+    "bullet": true,
     "awakeOnLoad": true,
     "_group": 1,
     "_type": 2,
     "_allowSleep": false,
     "_gravityScale": 1,
-    "_linearDamping": 0,
+    "_linearDamping": 0.01,
     "_angularDamping": 0,
     "_linearVelocity": {
       "__type__": "cc.Vec2",
