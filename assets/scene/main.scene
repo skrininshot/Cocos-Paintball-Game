@@ -4428,7 +4428,7 @@
     "startVelocity": {
       "__type__": "cc.Vec2",
       "x": 0,
-      "y": -2
+      "y": -1
     },
     "_id": "22R0EhulFLVY0Aed+koNEq"
   },
@@ -8170,7 +8170,7 @@
     "ballSpawner": {
       "__id__": 120
     },
-    "ballLifeDuration": 2,
+    "ballLifeDuration": 3,
     "uiController": {
       "__id__": 231
     },
