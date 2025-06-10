@@ -41,14 +41,14 @@
       "userData": {
         "trimThreshold": 1,
         "rotated": false,
-        "offsetX": 255.5,
-        "offsetY": -255.5,
-        "trimX": 511,
-        "trimY": 511,
+        "offsetX": 127.5,
+        "offsetY": -127.5,
+        "trimX": 255,
+        "trimY": 255,
         "width": 1,
         "height": 1,
-        "rawWidth": 512,
-        "rawHeight": 512,
+        "rawWidth": 256,
+        "rawHeight": 256,
         "borderTop": 0,
         "borderBottom": 0,
         "borderLeft": 0,
@@ -82,24 +82,24 @@
             3
           ],
           "uv": [
-            511,
+            255,
             1,
-            512,
+            256,
             1,
-            511,
+            255,
             0,
-            512,
+            256,
             0
           ],
           "nuv": [
-            0.998046875,
+            0.99609375,
             0,
             1,
             0,
-            0.998046875,
-            0.001953125,
+            0.99609375,
+            0.00390625,
             1,
-            0.001953125
+            0.00390625
           ],
           "minPos": [
             -0.5,

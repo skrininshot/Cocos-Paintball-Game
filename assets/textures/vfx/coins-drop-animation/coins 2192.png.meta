@@ -41,14 +41,14 @@
       "userData": {
         "trimThreshold": 1,
         "rotated": false,
-        "offsetX": -29,
-        "offsetY": -72,
+        "offsetX": -14.5,
+        "offsetY": -36,
         "trimX": 0,
-        "trimY": 144,
-        "width": 454,
-        "height": 368,
-        "rawWidth": 512,
-        "rawHeight": 512,
+        "trimY": 72,
+        "width": 227,
+        "height": 184,
+        "rawWidth": 256,
+        "rawHeight": 256,
         "borderTop": 0,
         "borderBottom": 0,
         "borderLeft": 0,
@@ -60,17 +60,17 @@
         "meshType": 0,
         "vertices": {
           "rawPosition": [
-            -227,
-            -184,
+            -113.5,
+            -92,
             0,
-            227,
-            -184,
+            113.5,
+            -92,
             0,
-            -227,
-            184,
+            -113.5,
+            92,
             0,
-            227,
-            184,
+            113.5,
+            92,
             0
           ],
           "indexes": [
@@ -83,12 +83,12 @@
           ],
           "uv": [
             0,
-            368,
-            454,
-            368,
+            184,
+            227,
+            184,
             0,
             0,
-            454,
+            227,
             0
           ],
           "nuv": [
@@ -102,13 +102,13 @@
             0.71875
           ],
           "minPos": [
-            -227,
-            -184,
+            -113.5,
+            -92,
             0
           ],
           "maxPos": [
-            227,
-            184,
+            113.5,
+            92,
             0
           ]
         },
