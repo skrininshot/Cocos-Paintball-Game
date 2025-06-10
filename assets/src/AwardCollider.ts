@@ -16,6 +16,7 @@ export class AwardCollider extends Component {
 
     private onBeginContact(selfCollider: Collider2D, otherCollider: Collider2D) {
         if (otherCollider.node.name === 'ball') {
+            this.node.emit('award-collider-triggered');
             ScoreManager.instance.addBonusScore(this.value);
             console.log(`award collider is triggered: ${this.value}`);
         }

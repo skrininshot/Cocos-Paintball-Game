@@ -6,6 +6,7 @@ export class ScoreManager extends Component {
     public static instance: ScoreManager;
     private multiplierScore: number = 0;
     private bonusScore: number = 0;
+    private totalScore: number = 0;
 
     onLoad() {
         if (ScoreManager.instance) {
@@ -18,23 +19,27 @@ export class ScoreManager extends Component {
     
     public addMultiplierScore(amount: number) {
         this.multiplierScore += amount;
+        
         console.log(`multiplier score: ${this.multiplierScore}`);
         this.node.emit('multiplier-score-updated', this.multiplierScore);
     }
 
     public addBonusScore(amount: number) {
-        this.bonusScore += amount * this.multiplierScore;
+        this.bonusScore += amount; 
+        this.totalScore += this.bonusScore * this.multiplierScore;
+        
         console.log(`bonus score: ${this.bonusScore}`);
-        this.node.emit('bonus-score-updated', this.bonusScore);
+        this.node.emit('total-score-updated', this.totalScore);
         this.node.emit('award-reached');
     }
     
     public clearScore() {
         this.multiplierScore = 0;
         this.bonusScore = 0;
+        this.totalScore = 0;
 
         this.node.emit('multiplier-score-updated', this.multiplierScore);
-        this.node.emit('bonus-score-updated', this.bonusScore);
+        this.node.emit('total-score-updated', this.bonusScore);
     }
     
     public getMultiplierScore(): number {
@@ -43,6 +48,10 @@ export class ScoreManager extends Component {
 
     public getBonusScore(): number {
         return this.bonusScore;
+    }
+
+    public getTotalScore(): number {
+        return this.totalScore;
     }
 }
 

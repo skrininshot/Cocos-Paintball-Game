@@ -2,6 +2,7 @@ import { _decorator, Component, Node, Button, Sprite } from 'cc';
 import {TextWithShadowEffect} from "./TextWithShadowEffect";
 import {WinUI} from "./WinUI";
 import {ScoreManager} from "./ScoreManager";
+import {MoneyAnimationController} from "./MoneyAnimationController";
 const { ccclass, property } = _decorator;
 
 @ccclass('UIController')
@@ -24,26 +25,29 @@ export class UIController extends Component {
     @property({type: Node})
     playButtonPressTip: Node = null!;
 
+    @property({type: MoneyAnimationController})
+    moneyAnimationController: MoneyAnimationController = null!;
+
     @property({type: WinUI})
     winUI: WinUI = null!;
-    
-    winUIOnAnimationComplete: (() => void) | null = null;
+
+    onAnimationCompleteAction: (() => void) | null = null;
 
     start() {
         this.playButton.node.on(Button.EventType.CLICK, this.onButtonClicked, this);
-        this.winUI.node.on('animation-completed', this.onWinUIAnimationComplete, this);
+        this.winUI.node.on('animation-completed', this.onAnimationComplete, this);
 
         ScoreManager.instance?.node.on('multiplier-score-updated', this.updateMultiplierScoreText, this);
-        ScoreManager.instance?.node.on('bonus-score-updated', this.updateBonusScoreText, this);
+        ScoreManager.instance?.node.on('total-score-updated', this.updateBonusScoreText, this);
 
         this.winUI.node.active = false;
     }
     
     onDestroy(){
         this.playButton.node.off(Button.EventType.CLICK, this.onButtonClicked, this);
-        this.winUI.node.off('animation-completed', this.onWinUIAnimationComplete, this);
+        this.winUI.node.off('animation-completed', this.onAnimationComplete, this);
         this.node.parent?.getChildByName('ScoreManagerNode')?.off('multiplier-score-updated', this.updateMultiplierScoreText, this);
-        this.node.parent?.getChildByName('ScoreManagerNode')?.off('bonus-score-updated', this.updateBonusScoreText, this);
+        this.node.parent?.getChildByName('ScoreManagerNode')?.off('total-score-updated', this.updateBonusScoreText, this);
     }
     
     activateButton() {
@@ -56,18 +60,22 @@ export class UIController extends Component {
         this.playButtonPressTip.active = false;
     }
     
-    startWinUIAnimation(onComplete: () => void){
-        this.winUIOnAnimationComplete = onComplete;
-        this.winUI.node.active = true;
-        this.winUI.startAnimation();
-        
+    startAnimation(onComplete: () => void){
+        this.onAnimationCompleteAction = onComplete;
+        this.moneyAnimationController.startAnimation(this.startWinUIAnimation.bind(this));
     }
     
-    private onWinUIAnimationComplete(){
+    startWinUIAnimation() {
+        this.winUI.node.active = true;
+        this.winUI.startAnimation();
+    }
+    
+    private onAnimationComplete(){
         this.winUI.node.active = false;
         
-        if (this.winUIOnAnimationComplete) {
-            this.winUIOnAnimationComplete();
+        if (this.onAnimationCompleteAction) {
+            this.onAnimationCompleteAction();
+            this.onAnimationCompleteAction = null;
         }
     }
     

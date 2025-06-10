@@ -74,7 +74,7 @@ export class GameManager extends Component {
 
             case GameStates.Win:
                 this.ballSpawner.despawn();
-                this.uiController.startWinUIAnimation(this.onWinUIAnimationComplete.bind(this))
+                this.uiController.startAnimation(this.onWinUIAnimationComplete.bind(this))
                 break;
                 
             case GameStates.Restart:

@@ -3,10 +3,12 @@ const { ccclass, property } = _decorator;
 
 @ccclass('BallSpawner')
 export class BallSpawner extends Component {
-    @property({
-        type: Prefab
-    })
+    @property({ type: Prefab })
     ballPrefab: Prefab = null!;
+
+    @property({ type: Node })
+    spawnContainer: Node = null!;
+    
     @property
     public spawnDistanceRange = 1;
     
@@ -18,7 +20,7 @@ export class BallSpawner extends Component {
 
     spawn() {
         this.ballInstance = instantiate(this.ballPrefab);
-        this.node.addChild(this.ballInstance);
+        this.spawnContainer.addChild(this.ballInstance);
         
         const rigidBody =  this.ballInstance.getComponent(RigidBody2D);
         if (rigidBody) {
