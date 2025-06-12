@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, Button, Sprite } from 'cc';
+import { _decorator, Component, Node, Button, Sprite, tween } from 'cc';
 import {TextWithShadowEffect} from "./TextWithShadowEffect";
 import {WinUI} from "./WinUI";
 import {ScoreManager} from "./ScoreManager";
@@ -38,8 +38,6 @@ export class UIController extends Component {
         this.winUI.node.on('animation-completed', this.onAnimationComplete, this);
 
         ScoreManager.instance?.node.on('multiplier-score-updated', this.updateMultiplierScoreText, this);
-        ScoreManager.instance?.node.on('total-score-updated', this.updateBonusScoreText, this);
-
         this.winUI.node.active = false;
     }
     
@@ -47,7 +45,6 @@ export class UIController extends Component {
         this.playButton.node.off(Button.EventType.CLICK, this.onButtonClicked, this);
         this.winUI.node.off('animation-completed', this.onAnimationComplete, this);
         this.node.parent?.getChildByName('ScoreManagerNode')?.off('multiplier-score-updated', this.updateMultiplierScoreText, this);
-        this.node.parent?.getChildByName('ScoreManagerNode')?.off('total-score-updated', this.updateBonusScoreText, this);
     }
     
     activateButton() {
@@ -62,12 +59,25 @@ export class UIController extends Component {
     
     startAnimation(onComplete: () => void){
         this.onAnimationCompleteAction = onComplete;
-        this.moneyAnimationController.startAnimation(this.startWinUIAnimation.bind(this));
+        this.moneyAnimationController.startAnimation(this.startWinUIAnimation.bind(this), 
+            this.startTotalScoreAnimation.bind(this));
     }
     
     startWinUIAnimation() {
         this.winUI.node.active = true;
         this.winUI.startAnimation();
+    }
+
+    startTotalScoreAnimation() {
+        const temp = { score: 0 };
+
+        tween(temp)
+            .to(1, { score: ScoreManager.instance.getTotalScore() }, {
+                onUpdate: () => {
+                    this.updateBonusScoreText(Math.floor(temp.score));
+                }
+            })
+            .start();
     }
     
     private onAnimationComplete(){

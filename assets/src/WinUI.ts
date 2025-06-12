@@ -37,7 +37,7 @@ export class WinUI extends Component {
     startAnimation(){
         this.animation.play();
         this.playStopSound(true);
-        this.totalBonusText.SetText(this.firstPrefix + ScoreManager.instance.getBonusScore().toString() + this.lastPrefix);
+        this.totalBonusText.SetText(this.firstPrefix + ScoreManager.instance.getTotalScore().toString() + this.lastPrefix);
     }
     
     private playStopSound(play: boolean){

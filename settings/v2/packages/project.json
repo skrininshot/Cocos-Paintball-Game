@@ -2,10 +2,10 @@
   "__version__": "1.0.6",
   "general": {
     "designResolution": {
-      "width": 750,
-      "height": 1336,
+      "width": 720,
+      "height": 1280,
       "fitHeight": true,
-      "fitWidth": false
+      "fitWidth": true
     }
   },
   "fbx": {
@@ -22,5 +22,19 @@
     "gravity": {
       "y": -10
     }
-  }
+  },
+  "layer": [
+    {
+      "name": "canvas_10",
+      "value": 1024
+    },
+    {
+      "name": "canvas_11",
+      "value": 2048
+    },
+    {
+      "name": "canvas_9",
+      "value": 512
+    }
+  ]
 }

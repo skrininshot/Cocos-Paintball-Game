@@ -1,10 +1,16 @@
-import { _decorator, Component, Node, instantiate, Vec3, Prefab, CCInteger } from 'cc';
+import { _decorator, Component, Node, instantiate, Vec3, Prefab, CCInteger, tween, AudioSource } from 'cc';
 import {MoneyAnimationElement} from './MoneyAnimationElement';
 const { ccclass, property } = _decorator;
 
 @ccclass('MoneyAnimationController')
 export class MoneyAnimationController extends Component {
 
+    @property(AudioSource)
+    scoreUpSound: AudioSource = null!;
+    
+    @property(AudioSource)
+    jackpotSound: AudioSource = null!;
+    
     //actual nodes on the scene
     @property({type: Node})
     eur500LeftInstance: Node = null!;
@@ -31,19 +37,25 @@ export class MoneyAnimationController extends Component {
     @property({type: Prefab})
     eur50Prefab: Prefab = null!;
 
-    //center where to move money
+    //center where to move money at first
     @property({type: Node})
     screenCenter: Node = null!;
+
+    //center where to move money at last
+    @property({type: Node})
+    scorePosition: Node = null!;
     
     @property({type: Vec3})
     elementTargetSize: Vec3 = null!;
-    
-    //time before appear
-    @property
-    elementAppearanceDuration: number = 0.1;
+
+    @property({type: Node})
+    elementContainer: Node = null!;
     
     @property
     elementMovingDuration: number = 0.2;
+
+    @property
+    elementPauseDuration: number = 1;
     
     //time before disappear
     @property
@@ -64,6 +76,8 @@ export class MoneyAnimationController extends Component {
     private activeMoneyPool: MoneyAnimationElement[] = [];
     
     private currentAnimationType: MoneyAnimationType = MoneyAnimationType.None;
+    
+    private onHalfAnimationCompleteAction: (() => void) | null = null;
     private onAnimationCompleteAction: (() => void) | null = null;
     
     start() {
@@ -73,17 +87,17 @@ export class MoneyAnimationController extends Component {
         
         for (let i = 0; i < this.animationElementsCount; i++) {
             const eur500Instance = instantiate(this.eur500Prefab);
-            eur500Instance.parent = this.node;
+            eur500Instance.parent = this.elementContainer;
             eur500Instance.active = false;
             this.eur500Pool[i] = eur500Instance.getComponent(MoneyAnimationElement);
             
             const eur100Instance = instantiate(this.eur100Prefab);
-            eur100Instance.parent = this.node;
+            eur100Instance.parent = this.elementContainer;
             eur100Instance.active = false;
             this.eur100Pool[i] = eur100Instance.getComponent(MoneyAnimationElement);
             
             const eur50Instance = instantiate(this.eur50Prefab);
-            eur50Instance.parent = this.node;
+            eur50Instance.parent = this.elementContainer;
             eur50Instance.active = false;
             this.eur50Pool[i] = eur50Instance.getComponent(MoneyAnimationElement);
         }
@@ -108,14 +122,17 @@ export class MoneyAnimationController extends Component {
         this.currentAnimationType = animationType;
     }
     
-    startAnimation(onComplete: () => void){
+    startAnimation(onComplete: () => void, onHalfComplete?: () => void){
         this.onAnimationCompleteAction = onComplete;
+        this.onHalfAnimationCompleteAction = onHalfComplete;
+        
+        this.jackpotSound.play();
         
         let startPosition: Vec3;
         
         switch (this.currentAnimationType){
             case MoneyAnimationType.None:
-                this.onAnimationComplete();
+                this.onHalfAnimationCompleted();
                 return;
                 
             case MoneyAnimationType.Left500:
@@ -144,39 +161,62 @@ export class MoneyAnimationController extends Component {
                 break;
         }
 
-        let offsetY = -0.5 * (this.animationElementsCount * this.distanceBetweenElements);
+        let offsetY = 0.5 * (this.animationElementsCount * this.distanceBetweenElements);
 
         for (let i = 0; i < this.activeMoneyPool.length; i++) {
             this.activeMoneyPool[i].node.active = true;
             this.activeMoneyPool[i].node.setWorldPosition(startPosition.x, startPosition.y, startPosition.z);
             this.activeMoneyPool[i].node.eulerAngles.set(this.eur500LeftInstance.eulerAngles);
-            this.activeMoneyPool[i].node.setSiblingIndex(this.activeMoneyPool.length - i);
+            this.activeMoneyPool[i].node.setSiblingIndex(i - this.activeMoneyPool.length);
             
-            let offsetPosition = new Vec3(0, offsetY + (i * this.distanceBetweenElements));
-            let targetPosition = new Vec3(this.screenCenter.worldPosition).add(offsetPosition);
+            let offsetPosition = new Vec3(0, offsetY - (i * this.distanceBetweenElements));
+            let screenCenterPosition = new Vec3(this.screenCenter.worldPosition).add(offsetPosition);
+            let scorePosition = new Vec3(this.scorePosition.worldPosition);
             
             let valueOffset = (i + 1);
 
+            let onHalfComplete: () => void = null;
             let onComplete: () => void = null;
             
+            if (i == 0){
+                onHalfComplete = this.onHalfAnimationCompleted.bind(this);
+            }
+            
             if (i == this.activeMoneyPool.length - 1) {
-                onComplete = this.onAnimationComplete.bind(this);
+                onComplete = this.onAnimationCompleted.bind(this);
             }
             
             this.activeMoneyPool[i].startMoveAnimation(
-                this.elementAppearanceDuration * valueOffset,
                 this.elementMovingDuration * valueOffset,
+                this.elementMovingDuration,
+                this.elementPauseDuration,
                 this.elementDisappearanceDuration * valueOffset,
-                targetPosition, 
+                screenCenterPosition, 
+                scorePosition, 
                 this.elementTargetSize,
+                onHalfComplete,
                 onComplete);
         }
     }
     
-    private onAnimationComplete(){
+    private onAnimationCompleted(){
+        for (let i = 0; i < this.activeMoneyPool.length; i++) {
+            this.activeMoneyPool[i].hide();
+            this.activeMoneyPool[i].node.active = false;
+        }
+        
         if (this.onAnimationCompleteAction) {
             this.onAnimationCompleteAction();
             this.onAnimationCompleteAction = null;
+        }
+    }
+
+    private onHalfAnimationCompleted(){
+        this.scoreUpSound.play();
+
+        if (this.onHalfAnimationCompleteAction) {
+            this.onHalfAnimationCompleteAction();
+            this.onHalfAnimationCompleteAction = null;
         }
     }
 }

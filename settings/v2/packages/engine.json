@@ -2,7 +2,7 @@
   "__version__": "1.0.12",
   "modules": {
     "graphics": {
-      "pipeline": "legacy-pipeline"
+      "pipeline": "custom-pipeline"
     },
     "configs": {
       "migrationsConfig": {
@@ -130,7 +130,7 @@
             "_value": false
           },
           "tween": {
-            "_value": false
+            "_value": true
           },
           "websocket": {
             "_value": false
@@ -206,6 +206,7 @@
           "physics-2d-box2d",
           "procedural-animation",
           "rich-text",
+          "tween",
           "ui"
         ],
         "noDeprecatedFeatures": {
